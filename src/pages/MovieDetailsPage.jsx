@@ -4,7 +4,7 @@ import {
   Outlet,
   NavLink,
   useLocation,
-  Link
+  useNavigate
 } from "react-router-dom";
 import { getMovieDetails } from "../services/tmdbApi";
 import styles from "../css/MovieDetailsPage.module.css";
@@ -13,6 +13,8 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
+
   const backLink = location.state?.from || "/movies";
 
   useEffect(() => {
@@ -30,9 +32,12 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={styles.container}>
-      <Link to={backLink} className={styles.backButton}>
+      {/* Przycisk "Back" */}
+      <button className={styles.backButton} onClick={() => navigate(backLink)}>
         ← Back
-      </Link>
+      </button>
+
+      {/* Sekcja szczegółów filmu */}
       <div className={styles.details}>
         <img src={imageUrl} alt={title} className={styles.poster} />
         <div className={styles.info}>
@@ -44,6 +49,7 @@ const MovieDetailsPage = () => {
           <p>{genres.map((genre) => genre.name).join(", ")}</p>
         </div>
       </div>
+
       <div className={styles.additionalInfo}>
         <h2>Additional Information</h2>
         <div className={styles.navLinks}>
