@@ -1,0 +1,53 @@
+.container {
+  padding: 20px;
+}
+
+.details {
+  display: flex;
+  gap: 20px;
+}
+
+.poster {
+  width: 300px;
+}
+
+.info {
+  max-width: 600px;
+}
+
+.backButton {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: blue;
+}
+
+.additionalInfo {
+  margin-top: 20px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 30px;
+}
+
+.navLink {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 22px;
+  text-decoration: none;
+  color: black;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navLink:hover {
+  background-color: orange;
+  color: white;
+}
+
+.activeLink {
+  background-color: red;
+  color: white;
+}
